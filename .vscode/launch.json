@@ -1,0 +1,41 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Flask",
+      "type": "python",
+      "preLaunchTask": "create/activate venv",
+      "request": "launch",
+      "module": "flask",
+      "env": {
+        "FLASK_APP": "floskl",
+        "FLASK_RUN_PORT": "5000",
+        "FLASK_DEBUG": "1"
+      },
+      "args": [
+        "run",
+        "--no-debugger", // .👉 https://flask.palletsprojects.com/en/2.3.x/debugging/#external-debuggers
+        //"--no-reload"  // Trade-off; see linked documentation
+      ],
+      "jinja": true,
+      "justMyCode": true,
+    },
+    {
+      "name": "Python: Init database",
+      "type": "python",
+      "preLaunchTask": "create/activate venv",
+      "request": "launch",
+      "module": "flask",
+      "env": {
+        "FLASK_APP": "floskl"
+      },
+      "args": [
+        "init-db"
+      ],
+      "justMyCode": true,
+    }
+  ]
+}

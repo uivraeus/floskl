@@ -11,6 +11,11 @@
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"version": "latest",
 			"dockerDashComposeVersion": "v2"
+		},
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"version": "latest",
+			"helm": "latest",
+			"minikube": "none"
 		}
 	},
 
@@ -27,7 +32,9 @@
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"streetsidesoftware.code-spell-checker",
-				"donjayamanne.githistory"
+				"donjayamanne.githistory",
+				"ms-azuretools.vscode-docker",
+				"ms-kubernetes-tools.vscode-kubernetes-tools"
 			]
 		}
 	}

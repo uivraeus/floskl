@@ -34,7 +34,8 @@
 				"streetsidesoftware.code-spell-checker",
 				"donjayamanne.githistory",
 				"ms-azuretools.vscode-docker",
-				"ms-kubernetes-tools.vscode-kubernetes-tools"
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"jock.svg"
 			]
 		}
 	}

@@ -21,6 +21,7 @@ def register():
     password = request.form['password']
     cursor = get_req_cursor()
     error = None
+    user = None # Will be known after successful INSERT
 
     if not username:
       error = 'Username is required'
@@ -30,14 +31,16 @@ def register():
     if error is None:
       try:
         cursor.execute(
-          "INSERT INTO users (username,password) VALUES(%s, %s)",
+          "INSERT INTO users (username,password) VALUES(%s, %s) RETURNING id",
           (username, generate_password_hash(password)),
         )
         cursor.connection.commit()
+        user = cursor.fetchone()
       except UniqueViolation:
         error = f"User {username} is already registered."
       else:
-        return redirect(url_for("auth.login"))
+        setLoginSession(user['id'])
+        return redirect(url_for("index"))
 
     flash(error) # . flash() stores messages that can be retrieved when rendering the template.
 
@@ -61,13 +64,17 @@ def login():
       error = 'Incorrect password'
 
     if error is None:
-      session.clear()
-      session['user_id'] = user['id']
+      setLoginSession(user['id'])
       return redirect(url_for('index'))
     
     flash(error)
   
   return render_template('auth/login.html')
+
+
+def setLoginSession(user_id):
+  session.clear()
+  session['user_id'] = user_id
 
 
 @bp.route('/logout')

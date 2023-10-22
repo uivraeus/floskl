@@ -30,7 +30,6 @@ def create_app(test_config=None):
 
     # ensure the instance folder exists (if/when needed)
     os.makedirs(app.instance_path, exist_ok=True)
-    print(f"Running with instance path: {app.instance_path}")
     
     from . import db
     db.init_app(app)

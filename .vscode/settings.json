@@ -1,6 +1,12 @@
 {
   "cSpell.words": [
-    "floskl"
+    "devcontainer",
+    "floskl",
+    "gunicorn",
+    "venv"
   ],
-  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "cSpell.enableFiletypes": [
+    "shellscript"
+  ]
 }

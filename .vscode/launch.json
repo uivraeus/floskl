@@ -8,6 +8,7 @@
       "name": "Python: Flask",
       "type": "python",
       "preLaunchTask": "create/activate venv",
+      "cwd": "${workspaceFolder}/app",
       "request": "launch",
       "module": "flask",
       "env": {
@@ -27,6 +28,7 @@
       "name": "Python: Init database",
       "type": "python",
       "preLaunchTask": "create/activate venv",
+      "cwd": "${workspaceFolder}/app",
       "request": "launch",
       "module": "flask",
       "env": {

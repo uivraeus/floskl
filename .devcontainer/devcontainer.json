@@ -35,7 +35,8 @@
 				"donjayamanne.githistory",
 				"ms-azuretools.vscode-docker",
 				"ms-kubernetes-tools.vscode-kubernetes-tools",
-				"jock.svg"
+				"jock.svg",
+				"ms-python.pylint"
 			]
 		}
 	}

@@ -1,22 +1,26 @@
-# __init__.py serves double duty:
-# 1. it will contain the application factory,
-# 2. it tells Python that the floskl directory should be treated as a package.
+""" Package configuration
+__init__.py serves double duty:
+1. it will contain the application factory,
+2. it tells Python that the floskl directory should be treated as a package.
+"""
+
+# pylint: disable=import-outside-toplevel
 
 import os
 
 from flask import Flask
 
-# Application Factory function
 def create_app(test_config=None):
+    """Application Factory function"""
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         # defaults
-        SECRET_KEY="dev", # <-- used for session cookies - replace with something truly secret in production
+        SECRET_KEY="dev",  # <-- used for session cookies - replace with actual secret in prod
         POSTGRES_HOST="localhost",
         POSTGRES_PORT="5432",
         POSTGRES_DB="floskl",
-        POSTGRES_USER="postgres", 
+        POSTGRES_USER="postgres",
         POSTGRES_PASSWORD="password"
     )
 
@@ -30,7 +34,7 @@ def create_app(test_config=None):
 
     # ensure the instance folder exists (if/when needed)
     os.makedirs(app.instance_path, exist_ok=True)
-    
+
     from . import db
     db.init_app(app)
 
@@ -40,5 +44,5 @@ def create_app(test_config=None):
     from . import blog
     app.register_blueprint(blog.bp)
     app.add_url_rule('/', endpoint='index')
-    
+
     return app

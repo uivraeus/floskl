@@ -13,7 +13,8 @@ from flask import Flask
 def create_app(test_config=None):
     """Application Factory function"""
     # create and configure the app
-    app = Flask(__name__, instance_relative_config=True)
+    # (instance path not really used but configure a well-known value just in case)
+    app = Flask(__name__, instance_path='/tmp/floskl-instance')
     app.config.from_mapping(
         # defaults
         SECRET_KEY="dev",  # <-- used for session cookies - replace with actual secret in prod

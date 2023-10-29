@@ -1,14 +1,11 @@
 [project]
 name = "floskl"
 version = "1.0.0"
-description = "A simple blog application implemented in Flask."
-
-# Manage dependencies in a traditional requirements.txxt file:
-# -> https://stackoverflow.com/a/73600610
-dynamic = ["dependencies"]
-[tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
+description = "Add simple blog application implemented in Flask."
+dependencies = [
+    "flask",
+]
 
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"

@@ -1,18 +1,19 @@
 html {
   font-family: sans-serif;
   background-image: linear-gradient(to bottom right, rgb(231, 247, 221), rgb(154, 173, 150));
-  padding: .5rem;
-  margin: 0;
+  padding: 0 .5rem;
+  margin: 0; 
   overflow-y: auto;
 }
 
 body {
   max-width: 960px;
   margin: 0 auto;
-  padding: .5rem;
+  padding: 0 .5rem;
   background-image: linear-gradient(to bottom right, rgb(236, 248, 229), rgb(180, 195, 178));
-  height: calc(100vh - 2rem);
-  font-size: min(30px, calc(8px + 3vw));
+  min-height: 100vh;
+  height: 100%;
+  font-size: min(40px,max(26px,calc(20px + 1vmax)));
   overflow-y: auto;
 }
 
@@ -50,6 +51,7 @@ nav img {
   max-width: 100%;
   height: auto;
   max-height: 4em;
+  margin-top: 0.25em;
 }
 
 nav ul {

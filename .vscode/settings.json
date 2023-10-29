@@ -8,11 +8,18 @@
     "venv",
     "werkzeug"
   ],
-  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
   "cSpell.enableFiletypes": [
+    "markdown",
+    "python",
     "shellscript"
   ],
-  "editor.tabSize": 4,
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "editor.detectIndentation": false
+  "editor.detectIndentation": true,
+  "[python]" : {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  }
 }

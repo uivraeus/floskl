@@ -1,9 +1,11 @@
 [project]
 name = "floskl"
 version = "1.0.0"
-description = "Add simple blog application implemented in Flask."
+description = "A simple blog application implemented in Flask."
 dependencies = [
     "flask",
+    "gunicorn",
+    "psycopg2-binary"
 ]
 
 [build-system]

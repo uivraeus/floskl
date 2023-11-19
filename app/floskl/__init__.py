@@ -6,6 +6,7 @@ __init__.py serves double duty:
 
 # pylint: disable=import-outside-toplevel
 
+import logging
 import os
 
 from flask import Flask
@@ -22,7 +23,8 @@ def create_app(test_config=None):
         POSTGRES_PORT="5432",
         POSTGRES_DB="floskl",
         POSTGRES_USER="postgres",
-        POSTGRES_PASSWORD="password"
+        POSTGRES_PASSWORD="password",
+        GUNICORN_LOGGING=False
     )
 
     # overrides
@@ -32,6 +34,12 @@ def create_app(test_config=None):
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
+
+    # Configure combined logging when app is running behind Gunicorn
+    if app.config['GUNICORN_LOGGING']:
+        gunicorn_logger = logging.getLogger('gunicorn.error')
+        app.logger.handlers = gunicorn_logger.handlers
+        app.logger.setLevel(gunicorn_logger.level)
 
     # ensure the instance folder exists (if/when needed)
     os.makedirs(app.instance_path, exist_ok=True)
@@ -45,5 +53,11 @@ def create_app(test_config=None):
     from . import blog
     app.register_blueprint(blog.bp)
     app.add_url_rule('/', endpoint='index')
+
+    app.logger.info("🚀 floskl app launched! DB config: host=%s:%s, user=%s, db=%s",
+        app.config['POSTGRES_HOST'],
+        app.config['POSTGRES_PORT'],
+        app.config['POSTGRES_USER'],
+        app.config['POSTGRES_DB'])
 
     return app

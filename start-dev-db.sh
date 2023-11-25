@@ -2,12 +2,14 @@
 
 set -euo pipefail
 
+# Check prerequisites
 if ! command -v docker-compose &> /dev/null
 then
   echo "❌ docker-compose could not be found"
   exit 1
 fi
 
+# Do the work
 if ! docker-compose --file dev-db/docker-compose.yaml up -d
 then
   echo "❌ Couldn't start the PostgreSQL container"

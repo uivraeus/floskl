@@ -22,5 +22,6 @@
     "editor.insertSpaces": true,
     "editor.detectIndentation": false
   },
-  "remote.restoreForwardedPorts" : false
+  "remote.restoreForwardedPorts": false,
+  "workbench.colorTheme": "Default Dark+"
 }

@@ -29,11 +29,11 @@ You can stop the database by running:
 Obtain settings such as host/port and credentials needed when configuring the application via the following environment variables:
 
 ```shell
-POSTGRES_HOST
-POSTGRES_PORT
-POSTGRES_DB
-POSTGRES_USER 
-POSTGRES_PASSWORD
+FLOSKL_POSTGRES_HOST
+FLOSKL_POSTGRES_PORT
+FLOSKL_POSTGRES_DB
+FLOSKL_POSTGRES_USER 
+FLOSKL_POSTGRES_PASSWORD
 ```
 
 ## Run locally (during development)

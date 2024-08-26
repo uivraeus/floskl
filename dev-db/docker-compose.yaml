@@ -1,8 +1,7 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:13 # 👉 https://hub.docker.com/_/postgres
+    container_name: dev-db_postgres
     network_mode: bridge # skip dedicated network to make it easier to connect from other individual running containers 
     ports:
       - 5432:5432

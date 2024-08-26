@@ -16,7 +16,7 @@ then
   exit 1
 fi
 
-ip_address=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' dev-db_postgres_1)
+ip_address=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' dev-db_postgres)
 echo "✅ PostgreSQL container is running"
 echo "   - Connect via \"localhost\" or ${ip_address}, port 5432"
-echo "   - Check the logs by running \"docker logs -f dev-db_postgres_1\""
+echo "   - Check the logs by running \"docker logs -f dev-db_postgres\""
